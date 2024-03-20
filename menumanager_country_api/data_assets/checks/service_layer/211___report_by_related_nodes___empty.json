@@ -1,0 +1,320 @@
+{
+  "http://ussd:8092/account/v1/accountnumber/lookup": {
+    "EquityNameCheckSS": {
+      "next_screen": "MainMenuScreenSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/accounts_inquiry_charge": {
+    "FetchAllAccountsInquiryChargesFSSS": {
+      "next_screen": "FetchAllAccountsInquiryChargesRS-SS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/all_accounts_balances": {
+    "FetchAllAccountBalanceFSSS": {
+      "next_screen": "AllBalanceRouterSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/balance": {
+    "EcoBalanceFSS": {
+      "next_screen": "MainMenuScreenSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/balances": {
+    "FetchAllAccountBalanceSS": {
+      "next_screen": "AllBalanceRouterSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/complete_account_opening": {
+    "InstantAccCompleteFuncScreenSS": {
+      "next_screen": "InstantAccCompleteRouterScreenSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/emailstatement": {
+    "SendEmailSSStatementFuncScreen": {
+      "next_screen": "EmailStatementSSRouterScreeen",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/get_secret_question": {
+    "CheckLastLoginFetchSecQuesFunction-SS": {
+      "next_screen": "CheckLastLoginFetchQuestionsRouter-SS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/lookup": {
+    "OtherBankAccFetchSSSourceAccScreen": {
+      "next_screen": "OtherBankAccSourceAccountSSSelection",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/lookupv1": {
+    "ProfileWithLoanSSAccountsFunction": {
+      "next_screen": "ProfileWithLoanSSAccountRouter",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/ministatement": {
+    "GetMinistatementSSFuncScreen": {
+      "next_screen": "SendMiniSSStatementSMS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/single_account_balance": {
+    "FetchSingleAccountBalanceFS-SS": {
+      "next_screen": "FetchSingleAccountBalanceRS-SS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/single_account_mini_statement": {
+    "GetMiniStatementFSSS": {
+      "next_screen": "GetMiniStatementRSSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/user_core_accounts": {
+    "PesaLinkDeregisterGetAccountFunctionSS": {
+      "next_screen": "PesaLinkDeregisGetUserAccountsRouterSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/agent/v1/agent/withdraw/": {
+    "AgentWithdrawFunctionSS": {
+      "next_screen": "AgentWithdrawRouterSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/airtime/v1/buyAirtime": {
+    "BuyAirtimeFavoutiteFunctionSS": {
+      "next_screen": "BuyAirtimeFavoriteRouter-SS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/airtime/v1/getTelcos": {
+    "FetchAirtimeFavTelcos-SS": {
+      "next_screen": "DisplayTelcAirtimeOperatosSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/bills/v1/charges": {
+    "PayBillFavSSCharges": {
+      "next_screen": "PayBillFavoriteChargesRouterSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/bills/v1/pay": {
+    "PayFavoriteBillerFunctionSS": {
+      "next_screen": "PayFavBillerRouterSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/bills/v1/popular": {
+    "FetchPopularSSBillers": {
+      "next_screen": "ShowPopularSSBillers",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/buyGoods/v1/buyGoods": {
+    "PayGoodsFavouriteFunctionSS": {
+      "next_screen": "PayGoodsFavoriteRouterSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/buyGoods/v1/buyGoodsMpesa": {
+    "PayMpesaTillFunctionSS": {
+      "next_screen": "PayMpesaTillRouterSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/favourite/v1/add_beneficiary": {
+    "AddEquityAccFavFunctionScreenSS": {
+      "next_screen": "AddEquityAccFavRouterScreenSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/favourite/v1/beneficiary": {
+    "OtherBankPayfromFavFunctionSS": {
+      "next_screen": "OtherBankPayfromFavRouterSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/favourite/v1/beneficiary/remove": {
+    "RemoveFavouriteFunctionSS": {
+      "next_screen": "RemoveFavouriteRouterSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/linkAccount/v1/delinkAccount": {
+    "DelinkEquityAccUnlinkFunctionScreenSS": {
+      "next_screen": "DelinkEquityAccUnlinkRouterScreenSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/linkAccount/v1/getUserAccounts/": {
+    "GetLinkedEquityAccountsFunctionScreeSS": {
+      "next_screen": "EquityLinkedAccsRouterScreenSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/apply": {
+    "SalaryLoanApplySSFunction": {
+      "next_screen": "SalaryLoanApplySSRouter",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/customer_products_query": {
+    "EcoSystemGetLimitFunctionsSS": {
+      "next_screen": "EcoSystemGetLimtsRouterSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/ecosystem_acceptloanoffer": {
+    "EcoSystemAcceptOfferSS": {
+      "next_screen": "EcoSystemAcceptOfferRouterSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/ecosystem_initiateloan": {
+    "EcoSystemIntiateSSLoanTransaction": {
+      "next_screen": "EcoSystemIntiateSSLoanRouter",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/ecosystemloanlimit": {
+    "DynamicLoanLimitFSS": {
+      "next_screen": "None",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/limit": {
+    "GeneralPurposeLoanSSGetLimitFunction": {
+      "next_screen": "GeneralPurposeLoanSSGetLimitRouter",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/limitV2": {
+    "GeneralPurposeV2SSLimitFunction": {
+      "next_screen": "GeneralPurposeV2SSLimitRouter",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/loan-v1/generalpurpose/apply": {
+    "GeneralPurposev2SSLoanApplyFunc": {
+      "next_screen": "GeneralPurposev2SSLoanApplyRouter",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/loan-v1/generalpurpose/payoff": {
+    "GPFullRepaymentF-SS": {
+      "next_screen": "GPRepaymentR-SS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/loan/ecosystem/initiate": {
+    "EcosystemLimitFunctionSS": {
+      "next_screen": "EcosystemLimitRouterSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/loan_prodcut_query": {
+    "DynamicRepayableFSS": {
+      "next_screen": "DynamicRepayableRSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/partialpayment2": {
+    "GPPartialRepaymentF-SS": {
+      "next_screen": "GPRepaymentR-SS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/products": {
+    "FetchLoanSSProducts": {
+      "next_screen": "ShowLoanSSProducts",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/mobilemoney/v1/buyMpesaFloat": {
+    "BuyMpesaFloatFunctionSS": {
+      "next_screen": "BuyMpesaFloatRouterSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/mobilemoney/v1/getMobileMoneyTelcos": {
+    "FetchMobileMoneyTelcosSS": {
+      "next_screen": "FetchMobileMoneyTelcosRouterSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/mobilemoney/v1/mobile/money": {
+    "SendTkashFunctionSS": {
+      "next_screen": "SendTkashRouterSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/mobilemoney/v1/namecheck": {
+    "MobileMoneyNameCheckScreen-SS": {
+      "next_screen": "MobileMoneySSConfirmationScreen",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/mobilemoney/v1/send/mobile/money": {
+    "SendMobileMoneyFunction-SS": {
+      "next_screen": "SendMobileMoneyRouter-SS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/settings/v1/changePin": {
+    "CompleteChangePINSS": {
+      "next_screen": "CompleteChangePINRouterSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/settings/v1/lookup/banks": {
+    "FetchKenyaBanksSS": {
+      "next_screen": "KenyaBanksRouterSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/settings/v1/securityQuestions": {
+    "ProfileUpdateFunctionSS": {
+      "next_screen": "ProfileUpdateRouterSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/settings/v1/sendsms": {
+    "SendMiniStatementSMSFSSS": {
+      "next_screen": "SendMiniStatementSMSRSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/settings/v1/token": {
+    "FetchKenyaWalletsSS": {
+      "next_screen": "ShowKenyaWallletsSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/transfer/v1/inter": {
+    "OtherBanksTransferSSPhoneFunction": {
+      "next_screen": "OtherBankTransfRouterSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/transfer/v1/intra": {
+    "FtEquityFavoriteFunctionSS": {
+      "next_screen": "RouterFtEquityFavoriteFunctionSS",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/transfer/v1/transaction_charges": {
+    "IntraBanksTransferSSCharge": {
+      "next_screen": "IntraBankTransferChargeRouter-SS",
+      "menus_that_points_to_this_menu": []
+    }
+  }
+}

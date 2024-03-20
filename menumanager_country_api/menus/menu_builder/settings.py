@@ -1,0 +1,18 @@
+FORBIDDEN_SESSION_KEYS = [
+    '_ussd_state',
+    'ussd_interaction',
+    'posted',
+    'submit_data',
+    'session_id',
+    'phone_number',
+    'expiry',
+    'input',
+    'language',
+    'default_language',
+    'service_code',
+    'telco',
+    'country_code',
+    'request_uuid',
+    'session_store_key',
+    'ussd_request',
+]

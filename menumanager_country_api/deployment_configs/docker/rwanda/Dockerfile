@@ -1,0 +1,48 @@
+FROM python:3-stretch
+
+# install nginx
+#RUN apt-get update && apt-get install nginx vim -y --no-install-recommends
+#COPY nginx.default /etc/nginx/sites-available/default
+#RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+#   && ln -sf /dev/stderr /var/log/nginx/error.log
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+
+#Download appropriate package for the OS version
+#Choose only ONE of the following, corresponding to your OS version
+
+#Ubuntu 16.04
+# RUN curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
+
+# RUN apt-get update && apt-get install default-libmysqlclient-dev unixodbc-dev -y
+# RUN ACCEPT_EULA=Y apt-get install msodbcsql17
+
+RUN apt-get update && \
+    apt-get install -y apt-transport-https && \
+    curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - && \
+    curl https://packages.microsoft.com/config/debian/9/prod.list > /etc/apt/sources.list.d/mssql-release.list && \
+    apt-get update && \
+    ACCEPT_EULA=Y apt-get install msodbcsql17 unixodbc-dev -y
+
+# copy source and install dependencies
+WORKDIR /menumanager_country_api
+RUN pwd
+RUN ls
+RUN mkdir -p /opt/app
+RUN mkdir -p /opt/app/pip_cache
+RUN mkdir -p /opt/app/menumanager_country_api
+# COPY menumanager_country_api/requirements.txt deployment_configs/docker/rwanda/rwanda-start-server.sh /opt/app/
+#COPY .pip_cache /opt/app/pip_cache/
+COPY . /opt/app/menumanager_country_api/
+RUN ls -l /opt/app/menumanager_country_api/
+WORKDIR /opt/app
+#RUN pip install -r requirements.txt --cache-dir /opt/app/pip_cache
+# RUN pip install PyYAML==3.13
+RUN pip install -r requirements.txt --no-cache-dir
+#RUN sed -i '107s/.*/version_info = (1, 3, 12, "final", 0)/' /usr/local/lib/python3.8/site-packages/pymysql/__init__.py
+RUN chown -R www-data:www-data /opt/app
+RUN chmod +x /opt/app/rwanda-start-server.sh
+
+# start server
+EXPOSE 20250
+STOPSIGNAL SIGTERM
+CMD ["/opt/app/rwanda-start-server.sh"]

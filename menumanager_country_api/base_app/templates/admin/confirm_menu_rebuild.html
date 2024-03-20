@@ -1,0 +1,31 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+    <h2><a href="#menu-title">Menus</a> and omni services has been rebuilt!</h2>
+    <h3 id="omni-title">Here are the new omni services: </h3>
+    <pre style="background-color: #d8f3dc">
+        {% for omni_service in omni_services %}
+            <code id="json-container-omni-{{ forloop.counter0 }}">{{ omni_service|safe }}</code>
+        {% endfor %}
+    </pre>
+    <div style="width: 100%;height: 60rem;background-color: #CC3434">&nbsp;</div>
+    <h3 id="menu-title">Here are the new menus: </h3>
+    <a href="#omni-title">Go back to omni </a>
+    <pre style="background-color: #d8f3dc">
+        {% for menu in menus %}
+            <code id="json-container-{{ forloop.counter0 }}">{{ menu|safe }}</code>
+        {% endfor %}
+    </pre>
+    <a href="#omni-title"> Return to top </a>
+    <script>
+        {% for menu in menus %}
+            const data_{{ forloop.counter0 }} = {{ menu|safe }};
+            document.getElementById('json-container-{{ forloop.counter0 }}').innerHTML = JSON.stringify(data_{{ forloop.counter0 }}, null, 3);
+        {% endfor %}
+    </script>
+    <script>
+        {% for omni_service in omni_services %}
+            const omni_data_{{ forloop.counter0 }} = {{ omni_service|safe }};
+            document.getElementById('json-container-omni-{{ forloop.counter0 }}').innerHTML = JSON.stringify(omni_data_{{ forloop.counter0 }}, null, 3);
+        {% endfor %}
+    </script>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'admin/base_site.html' %}
+{% load admin_custom_tags %}
+
+{% block branding %}
+    <h1 id="site-name">
+        <a href="{% url 'admin:index' %}">
+            {% get_current_country %} Admin
+        </a>
+    </h1>
+{% endblock %}

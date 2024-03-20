@@ -1,0 +1,6 @@
+{% extends 'admin/index.html' %}
+
+{% block usertools %}
+    <a href="{% url 'admin:rebuild_cache' %}" class="button button">Rebuild menus</a>
+    {{ block.super }}
+{% endblock %}

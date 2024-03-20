@@ -1,0 +1,641 @@
+{
+  "http://ussd:8092/account/v1/account_opening": {
+    "InstantAccIntiateRequestFuncScreen-KE": {
+      "next_screen": "InstantAccOpenRouterScreen-KE",
+      "menus_that_points_to_this_menu": [
+        "InstantAccountSecondSecurityAnswer-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/account/v1/accountnumber/lookup": {
+    "FtEquityFavoriteNameCheck-KE": {
+      "next_screen": "FtEquityFavNameCheckRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "FtEquityFavoriteSourceAccount-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/account/v1/accounts_inquiry_charge": {
+    "FetchMiniStatementInquiryChargesFS-KE": {
+      "next_screen": "FetchMiniStatementInquiryChargesRS-KE",
+      "menus_that_points_to_this_menu": [
+        "MiniStatementAccSelectionScreen-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/account/v1/all_accounts_balances": {
+    "FetchAllAccountBalanceFS-KE": {
+      "next_screen": "AllBalanceRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/balance": {
+    "EcoBalanceF-KE": {
+      "next_screen": "MainMenuScreenKE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/balances": {
+    "FetchAllAccountBalance-KE": {
+      "next_screen": "AllBalanceRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/complete_account_opening": {
+    "InstantAccCompleteFuncScreen-KE": {
+      "next_screen": "InstantAccCompleteRouterScreen-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/emailstatement": {
+    "SendEmailStatementFuncScreen-KE": {
+      "next_screen": "EmailStatementRouterScreeen-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/get_secret_question": {
+    "CheckLastLoginFetchSecQuesFunction-KE": {
+      "next_screen": "CheckLastLoginFetchQuestionsRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/initiate_pin_reset": {
+    "CheckLastLoginIntermediateFunction-KE": {
+      "next_screen": "CheckLastLoginIntermediateRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "CheckLastLoginIdNumber-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/account/v1/lookup": {
+    "GeneralPurposeV2GetAccountsFunction-KE": {
+      "next_screen": "GeneralPurposeV2GetAccountsRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "GeneralPurposeV2LimitViewScreen-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/account/v1/lookupv1": {
+    "OverdraftAirtimeOtherNumCheckBalFunc-ke": {
+      "next_screen": "OverdraftAirtimeOtherNumCheckBalRouter-ke",
+      "menus_that_points_to_this_menu": [
+        "BuyAirtimeOtherLineAccount-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/account/v1/ministatement": {
+    "GetMinistatementFuncScreen-KE": {
+      "next_screen": "SendMiniStatementSMS-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/single_account_balance": {
+    "FetchSingleAccountBalanceFS-KE": {
+      "next_screen": "FetchSingleAccountBalanceRS-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/single_account_mini_statement": {
+    "GetMiniStatementFS-KE": {
+      "next_screen": "GetMiniStatementRS-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/user_core_accounts": {
+    "PesaLinkDeregisterGetAccountFunction-KE": {
+      "next_screen": "PesaLinkDeregisGetUserAccountsRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/account/v1/verifyanswers": {
+    "CheckLastLoginVerifyQuestions-KE": {
+      "next_screen": "CheckLastLoginQuestionsVerifyRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "CheckLastLoginQuestionTwoAnswer-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/agent/v1/agent/": {
+    "QueryAgent-KE": {
+      "next_screen": "AgentLookupRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "AgentWithdrawClientToke-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/agent/v1/agent/withdraw/": {
+    "AgentWithdrawFunction-KE": {
+      "next_screen": "AgentWithdrawRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/airtime/v1/buyAirtime": {
+    "BuyAirtimeFavoutiteFunction-KE": {
+      "next_screen": "BuyAirtimeFavoriteRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/airtime/v1/getTelcos": {
+    "FetchAirtimeFavTelcos-KE": {
+      "next_screen": "DisplayTelcAirtimeOperatos-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/bills/v1/billerDetails/": {
+    "PayBillFavNameCheck-KE": {
+      "next_screen": "PayBillfavNameCheckRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "PayBillFavoriteSourceAccount-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/bills/v1/charges": {
+    "PayBillFavCharges-KE": {
+      "next_screen": "PayBillFavoriteChargesRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/bills/v1/pay": {
+    "PayFavoriteBillerFunction-KE": {
+      "next_screen": "PayFavBillerRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/bills/v1/popular": {
+    "FetchPopularBillers-KE": {
+      "next_screen": "ShowPopularBillers-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/buyGoods/v1/buyGoods": {
+    "PayGoodsFavouriteFunction-KE": {
+      "next_screen": "PayGoodsFavoriteRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/buyGoods/v1/buyGoodsMpesa": {
+    "PayMpesaTillFunction-KE": {
+      "next_screen": "PayMpesaTillRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/buyGoods/v1/merchant_check": {
+    "BuyGoodsFavNameCheck-KE": {
+      "next_screen": "EazyPayFavNameCheckRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "BuyGoodsFavSelectAccount-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/buyGoods/v1/mpesa/charges": {
+    "FetchMpesaTillTxnCharges-KE": {
+      "next_screen": "MpesaTillChargesRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "PayMpesaSourceAccount-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/buyGoods/v1/nameCheck": {
+    "PayMpesaTillNameCheck-KE": {
+      "next_screen": "MpesaTillNameCheckRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "MpesaTillNumber-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/favourite/v1/add_beneficiary": {
+    "SaveTkashFavorite-KE": {
+      "next_screen": "SaveTkashFavoriteRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "TkashFavoriteAlias-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/favourite/v1/beneficiary": {
+    "CheckLastLoginRemoveFirstQuesFunctio-KE": {
+      "next_screen": "CheckLastLoginDisSecondBatchOfQuest-KE",
+      "menus_that_points_to_this_menu": [
+        "CheckLastLoginQuestionOneAnswer-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/favourite/v1/beneficiary/remove": {
+    "RemoveFavouriteFunction-KE": {
+      "next_screen": "RemoveFavouriteRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/linkAccount/v1/delinkAccount": {
+    "DelinkEquityAccUnlinkFunctionScreen-KE": {
+      "next_screen": "DelinkEquityAccUnlinkRouterScreen-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/linkAccount/v1/getUserAccounts/": {
+    "GetLinkedEquityAccountsFunctionScree-KE": {
+      "next_screen": "EquityLinkedAccsRouterScreen-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/linkAccount/v1/linkAditionalAccounts": {
+    "LinkEquityAccFunctionScreen-KE": {
+      "next_screen": "LinkEquityAccRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "LinkEquityAccUserPinInputScreen-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/loan/v1/apply": {
+    "SalaryLoanApplyFunction-KE": {
+      "next_screen": "SalaryLoanApplyRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/customer_products_query": {
+    "EcoSystemLoanProductsFunction-KE": {
+      "next_screen": "EcoSystemLoanProductsRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/ecopaymentoptions": {
+    "EcoPurchaseOptionsQueryF-KE": {
+      "next_screen": "EcoPurchaseOptionsQueryR-KE",
+      "menus_that_points_to_this_menu": [
+        "EcoLimitnAmountI-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/loan/v1/ecosystem/accept": {
+    "EcoFullPaymentAcceptF-KE": {
+      "next_screen": "EcoFullPaymentAcceptR-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/ecosystem/customerproducts": {
+    "EcoRepaymentSelectEcoF-KE": {
+      "next_screen": "EcoRepaymentGetEcosR-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/ecosystem/initiate": {
+    "EcoLoanApplyF-KE": {
+      "next_screen": "EcoLoanApplyR-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/ecosystem_acceptloanoffer": {
+    "EcoSystemAcceptOffer-KE": {
+      "next_screen": "EcoSystemAcceptOfferRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/ecosystem_initiateloan": {
+    "EcoSystemIntiateLoanTransaction-KE": {
+      "next_screen": "EcoSystemIntiateLoanRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/ecosystemloanbalance": {
+    "EcoPartialLoanBalanceF-KE": {
+      "next_screen": "EcoPartialLoanBalanceR-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/ecosystemloanlimitone": {
+    "EcoLoanLimitF-KE": {
+      "next_screen": "EcoLoanLimitR-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/ecosystempayloan": {
+    "EcoRepaymentF-KE": {
+      "next_screen": "EcoRepaymentR-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/ecoystemtotalrepayable": {
+    "EcoRepayableF-KE": {
+      "next_screen": "LoansMainMenu-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/fullpayment": {
+    "FullPaymentFunction-KE": {
+      "next_screen": "FullPaymentRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "IsExperianCheckR"
+      ]
+    }
+  },
+  "http://ussd:8092/loan/v1/limit": {
+    "GeneralPurposeLoanFunctionScreen-KE": {
+      "next_screen": "GeneralPurposeLimitRouterScreen-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/limitV2": {
+    "OverdraftMpesaCheckloanLimitFunction-KE": {
+      "next_screen": "OverdraftMpesaCheckloanLimitRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/loan-v1/generalpurpose/apply": {
+    "GeneralPurposev2LoanApplyFunc-KE": {
+      "next_screen": "GeneralPurposev2LoanApplyRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/loan-v1/generalpurpose/payoff": {
+    "GPFullRepaymentF": {
+      "next_screen": "GPRepaymentR",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/loanInstallmentOptions": {
+    "GeneralPurposeV2InstallmentOptionsFu-KE": {
+      "next_screen": "GeneralPurpInstallmentOptionsRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "GeneralPurposeV2SelectAccount-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/loan/v1/loan_prodcut_query": {
+    "DynamicRepayableF-KE": {
+      "next_screen": "DynamicRepayableR-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/loan_purposes": {
+    "GeneralPurposeV2LoanPurpose-KE": {
+      "next_screen": "GeneralPurposeV2LoanPurposeRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "GeneralPurposeV2InstallmentOptions-KE",
+        "GPLoansInstalmentsWithBalancev2-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/loan/v1/merchant/apply": {
+    "MerchantLoanGetLoanFunction-KE": {
+      "next_screen": "MerchantLoanGetLoanRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/merchant/clearloan": {
+    "MerchantLoanPayFullLoan-KE": {
+      "next_screen": "MerchantLoanPayLoanRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/merchant/loanlimit": {
+    "MerchantLoanLimitFunction-KE": {
+      "next_screen": "MerchantLoanLimitRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/merchant/partialclearloan": {
+    "MerchantLoanPayLoan-KE": {
+      "next_screen": "MerchantLoanPayLoanRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/partialpayment": {
+    "PartialPaymentFunction-KE": {
+      "next_screen": "PartialPaymentRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "IsExperianPartialCheckR"
+      ]
+    }
+  },
+  "http://ussd:8092/loan/v1/partialpayment2": {
+    "GPPartialRepaymentF": {
+      "next_screen": "GPRepaymentR",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/products": {
+    "JohariLimitLoanProductQueryF": {
+      "next_screen": "JohariLimitLoanProductQueryR",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v1/totalRepayable": {
+    "GeneralPurposeTotalPayable-KE": {
+      "next_screen": "GeneralPurposePayableRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "GeneralPurposeSelectAccountToDeposit-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/loan/v1/totalRepayableV2": {
+    "OverdraftMpesaTotalRepayable-KE": {
+      "next_screen": "OverdraftMpesaTotalRepayableRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v3/apply": {
+    "joPensionandSalaryFunction-KE": {
+      "next_screen": "joPensionandSalaryRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v3/clear_loan": {
+    "FullPaymentNewJohariF": {
+      "next_screen": "PaymentNewJohariR",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v3/installment": {
+    "JoSalaryAdvanceLoanInstallmentF-KE": {
+      "next_screen": "JoSalaryAdvanceLoanInstallmentR-KE",
+      "menus_that_points_to_this_menu": [
+        "JoSalaryAdvanceLoanAccount-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/loan/v3/limit": {
+    "JohariLimitF": {
+      "next_screen": "JohariLImitR",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v3/partial_pay": {
+    "PartialPaymentNewJohariF": {
+      "next_screen": "PaymentNewJohariR",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/loan/v3/repayable": {
+    "JoPensionLoanRepayableF-KE": {
+      "next_screen": "JoPensionLoanRepayableRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "JoPensionLoanPeriod-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/mobilemoney/v1/buyMpesaFloat": {
+    "BuyMpesaFloatFunction-KE": {
+      "next_screen": "BuyMpesaFloatRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/mobilemoney/v1/buyMpesaFloatNameCheck": {
+    "NameChecekFloatAgent-KE": {
+      "next_screen": "NameCheckFloatRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "FLoatAgentNumber-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/mobilemoney/v1/mobile/money": {
+    "SendTkashFunction-KE": {
+      "next_screen": "SendTkashRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/mobilemoney/v1/mobile/money/charges": {
+    "AirtelMoneyChargesF-KE": {
+      "next_screen": "AirtelMoneyChargesR-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/mobilemoney/v1/namecheck": {
+    "WalletFavouriteNameCheck-KE": {
+      "next_screen": "WalletFavNameCheckRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "WalletfavoriteAlias-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/onboarding/v1/registration/status": {
+    "LinkEquityAccPinAccGetRouter-KE": {
+      "next_screen": "LinkEquityAccPinAccGetPinAttempt-KE",
+      "menus_that_points_to_this_menu": [
+        "LinkEquityAccPinAccGetFunction-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/onboarding/v1/signup": {
+    "RegisterCustomerScreen-KE": {
+      "next_screen": "ConfirmRegistrationScreen-KE",
+      "menus_that_points_to_this_menu": [
+        "ClientTokenSceeen-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/pesalink/v1/namecheck": {
+    "PesaLinkAccountNameCheck-KE": {
+      "next_screen": "LanguageSelectionScreen-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/pesalink/v1/namecheck/phone": {
+    "PesaLinkPhoneNameCheck-KE": {
+      "next_screen": "LanguageSelectionScreen-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/settings/v1/bank": {
+    "QueryBankFunction-KE": {
+      "next_screen": "QueryBankRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "BankLookUpNumberSearch-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/settings/v1/changePin": {
+    "CompleteChangePIN-KE": {
+      "next_screen": "CompleteChangePINRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/settings/v1/changeTempPin": {
+    "ChangeTemporaryPinFunction-KE": {
+      "next_screen": "ChangeTemporaryPinRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "changeTempPinPinTokenScreen-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/settings/v1/initiateChangePin": {
+    "ChangePINFunctionMenu-KE": {
+      "next_screen": "InitiateChangePINRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/settings/v1/lookup/bankcode": {
+    "FetchBankLookup-KE": {
+      "next_screen": "BankCodeRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "OtherBankBankCodeScreen-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/settings/v1/lookup/banks": {
+    "FetchKenyaBanks-KE": {
+      "next_screen": "KenyaBanksRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/settings/v1/securityQuestions": {
+    "SecurityQuestionFunction-KE": {
+      "next_screen": "SecurityQuestionRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/settings/v1/sendsms": {
+    "SendMiniStatementSMSFS-KE": {
+      "next_screen": "SendMiniStatementSMSR-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/settings/v1/token": {
+    "FetchKenyaWallets-KE": {
+      "next_screen": "ShowKenyaWalllets-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/settings/v1/verifyTempPin": {
+    "VerifyTemporaryPinFunction-KE": {
+      "next_screen": "ValidateTempPinRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "verifyTempPinTokenScreen-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/transfer/v1/inter": {
+    "OtherBanksTransferPhoneFunction-KE": {
+      "next_screen": "OtherBankTransfRouter-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/transfer/v1/intra": {
+    "FtEquityFavoriteFunction-KE": {
+      "next_screen": "RouterFtEquityFavoriteFunction-KE",
+      "menus_that_points_to_this_menu": []
+    }
+  },
+  "http://ussd:8092/transfer/v1/pesalink/query": {
+    "PhoneAssociatedBanksFunctionScreen-KE": {
+      "next_screen": "PhoneAssociatedBanksRouterScreen-KE",
+      "menus_that_points_to_this_menu": [
+        "OtherBankPhonePaymentReason-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/transfer/v1/transaction_charges": {
+    "OtherBanksTransferPhoneCharge-KE": {
+      "next_screen": "OtherBankPhoneChargeRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "OtherBankSourceAccounts-KE"
+      ]
+    }
+  },
+  "http://ussd:8092/withdraw/v1/agentcharges": {
+    "AgentWithdrawChargesFunction-KE": {
+      "next_screen": "AgentWithdrawChargesRouter-KE",
+      "menus_that_points_to_this_menu": [
+        "DynamicSelectAccount-KE"
+      ]
+    }
+  }
+}

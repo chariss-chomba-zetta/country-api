@@ -1,0 +1,402 @@
+trigger:
+  branches:
+    include:
+    - develop
+    - release/uat
+    - release/preprod
+    - master
+
+variables:
+  DEVTESTDockerRegistryServiceConnection: 'crequitydevtest'
+  PRODDockerRegistryServiceConnection: 'crequity'
+
+  DEVImageRepository: 'ussd/country-api-ke-dev'
+  DEVImageRepository2: 'ussd/country-api-rw-dev'
+  DEVImageRepository3: 'ussd/country-api-ss-dev'
+  DEVImageRepository4: 'ussd/country-api-tz-dev'
+  DEVImageRepository5: 'ussd/country-api-ug-dev'
+  DEVImageRepository6: 'ussd/country-api-drc-dev'
+  UATImageRepository: 'ussd/country-api-ke-uat'
+  UATImageRepository2: 'ussd/country-api-rw-uat'
+  UATImageRepository3: 'ussd/country-api-ss-uat'
+  #UATImageRepository4: 'ussd/country-api-tz-uat'
+  #UATImageRepository5: 'ussd/country-api-ug-uat'
+
+  PREPRODImageRepository: 'ussd/country-api-ke-preprod'
+  PREPRODImageRepository2: 'ussd/country-api-rw-preprod'
+  PREPRODImageRepository3: 'ussd/country-api-ss-preprod'
+  PREPRODImageRepository4: 'ussd/country-api-tz-preprod'
+  PREPRODImageRepository5: 'ussd/country-api-ug-preprod'
+
+  PRODImageRepository1: 'ussd/country-api-ke-prod'
+  PRODImageRepository2: 'ussd/country-api-rw-prod'
+  PRODImageRepository3: 'ussd/country-api-ss-prod'
+  # PRODImageRepository4: 'ussd/country-api-tz-prod'
+  # PRODImageRepository5: 'ussd/country-api-ug-prod'
+
+  PRODImageRepository: 'ussd/country-api-prod'
+
+  DEVTESTContainerRegistry: 'crequitydevtest.azurecr.io'
+  PRODContainerRegistry: 'crequity.azurecr.io'
+
+  dockerfilePath: '**/Dockerfile'
+
+  devKeyVaultName: 'kv-ussd-dev'
+  uatKeyVaultName: 'kv-ussd-uat'
+  prodKeyVaultName: 'kv-ussd-prod'
+
+  azureSubscription: 'Enterprise Dev/Test (1b1a6248-7641-4360-8aa9-6e4a0f0ee052)'
+
+  appName: 'ussd-country-api'
+
+  tag: '$(Build.BuildId)'
+
+  vmImageName: 'ubuntu-latest'
+
+stages:
+
+  - stage: PRBuild
+    displayName: Validate PR
+    condition: and(always(), eq(variables['Build.Reason'], 'PullRequest'))
+    jobs:
+      - job: Build
+        displayName: Build
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+
+          - task: AzureKeyVault@2
+            inputs:
+              azureSubscription: $(azureSubscription)
+              KeyVaultName: $(devKeyVaultName)
+              SecretsFilter: '*'
+              RunAsPreJob: false
+
+          - task: replacetokens@3
+            inputs:
+              targetFiles: |
+                **/*dev.yaml
+                **/**/**/*production.py
+              encoding: 'auto'
+              writeBOM: true
+              actionOnMissing: 'warn'
+              keepToken: false
+              tokenPrefix: '#{'
+              tokenSuffix: '}#'
+              useLegacyPattern: false
+              enableTransforms: false
+              enableTelemetry: true
+
+          # - script: |
+          #     wget https://download.defensecode.com/latest/clients/tscli.tar.gz -O tscli.tar.gz
+          #     tar xvzf tscli.tar.gz
+          #   displayName: 'Download/Extract ThunderScan API CLI'
+      
+          # - script: |
+          #     ./tscli --upload $(system.defaultworkingdirectory) --threshold "high:40" --engines 4 --report --formats "html,json" --filename "$(appName)-report" --name "$(appName)-$(tag)"
+          #   displayName: 'ThunderScan Scan'
+          # - publish: $(appName)-report.html
+          #   condition: succeededOrFailed()
+          #   artifact: ThunderScan HTML Report
+  
+          - task: CopyFiles@2
+            inputs:
+              SourceFolder: '$(system.defaultworkingdirectory)'
+              Contents: |
+                **/*dev.yaml
+                **/*dev.py
+              TargetFolder: '$(build.artifactstagingdirectory)'
+
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+              ArtifactName: 'dev_drop'
+              publishLocation: 'Container'
+
+  - stage: BuildDEV
+    displayName: DEV
+    condition: and(always(), contains(variables['Build.SourceBranch'], 'refs/heads/develop'))
+    jobs:
+      - job: Build
+        displayName: Build
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+
+          - task: AzureKeyVault@2
+            inputs:
+              azureSubscription: $(azureSubscription)
+              KeyVaultName: $(devKeyVaultName)
+              SecretsFilter: '*'
+              RunAsPreJob: false
+
+          - task: replacetokens@3
+            inputs:
+              targetFiles: |
+                **/*dev.yaml
+                **/*dev.py
+                **/**/**/*production.py
+                **/docker-compose.yml
+              encoding: 'auto'
+              writeBOM: true
+              actionOnMissing: 'warn'
+              keepToken: false
+              tokenPrefix: '#{'
+              tokenSuffix: '}#'
+              useLegacyPattern: false
+              enableTransforms: false
+              enableTelemetry: true
+
+          # - script: |
+          #     wget https://download.defensecode.com/latest/clients/tscli.tar.gz -O tscli.tar.gz
+          #     tar xvzf tscli.tar.gz
+          #   displayName: 'Download/Extract ThunderScan API CLI'
+      
+          # - script: |
+          #     ./tscli --upload $(system.defaultworkingdirectory) --threshold "high:40" --engines 4 --report --formats "html,json" --filename "$(appName)-report" --name "$(appName)-$(tag)"
+          #   displayName: 'ThunderScan Scan'
+          # - publish: $(appName)-report.html
+          #   condition: succeededOrFailed()
+          #   artifact: ThunderScan HTML Report
+
+          - task: DockerCompose@0
+            inputs:
+              containerregistrytype: 'Azure Container Registry'
+              azureSubscription: 'Enterprise Dev/Test (1b1a6248-7641-4360-8aa9-6e4a0f0ee052)'
+              azureContainerRegistry: '{"loginServer":"crequitydevtest.azurecr.io", "id" : "/subscriptions/1b1a6248-7641-4360-8aa9-6e4a0f0ee052/resourceGroups/RSG-DEV-EQUITY/providers/Microsoft.ContainerRegistry/registries/crequitydevtest"}'
+              dockerComposeFile: '**/docker-compose.yml'
+              action: 'Build services'
+              additionalImageTags: '$(Build.BuildId)'
+
+          - task: DockerCompose@0
+            inputs:
+              containerregistrytype: 'Azure Container Registry'
+              azureSubscription: 'Enterprise Dev/Test (1b1a6248-7641-4360-8aa9-6e4a0f0ee052)'
+              azureContainerRegistry: '{"loginServer":"crequitydevtest.azurecr.io", "id" : "/subscriptions/1b1a6248-7641-4360-8aa9-6e4a0f0ee052/resourceGroups/RSG-DEV-EQUITY/providers/Microsoft.ContainerRegistry/registries/crequitydevtest"}'
+              dockerComposeFile: '**/docker-compose.yml'
+              action: 'Push services'
+              additionalImageTags: '$(Build.BuildId)'
+
+          - task: CopyFiles@2
+            inputs:
+              SourceFolder: '$(system.defaultworkingdirectory)'
+              Contents: |
+                **/*dev.yaml
+                **/*dev.py
+              TargetFolder: '$(build.artifactstagingdirectory)'
+
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+              ArtifactName: 'dev_drop'
+              publishLocation: 'Container'
+
+  - stage: BuildUAT
+    displayName: UAT
+    condition: and(always(), contains(variables['Build.SourceBranch'], 'refs/heads/release/uat'))
+    jobs:
+      - job: Build
+        displayName: Build
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+
+          - task: AzureKeyVault@2
+            inputs:
+              azureSubscription: $(azureSubscription)
+              KeyVaultName: $(uatKeyVaultName)
+              SecretsFilter: '*'
+              RunAsPreJob: false
+
+          - task: replacetokens@3
+            inputs:
+              targetFiles: |
+                **/*uat.yaml
+                **/**/**/*production.py
+                **/docker-compose-uat.yml
+              encoding: 'auto'
+              writeBOM: true
+              actionOnMissing: 'warn'
+              keepToken: false
+              tokenPrefix: '#{'
+              tokenSuffix: '}#'
+              useLegacyPattern: false
+              enableTransforms: false
+              enableTelemetry: true
+
+          - script: |
+              wget https://download.defensecode.com/latest/clients/tscli.tar.gz -O tscli.tar.gz
+              tar xvzf tscli.tar.gz
+            displayName: 'Download/Extract ThunderScan API CLI'
+      
+          - script: |
+              ./tscli --upload $(system.defaultworkingdirectory) --threshold "high:40" --engines 4 --report --formats "html,json" --filename "$(appName)-report" --name "$(appName)-$(tag)"
+            displayName: 'ThunderScan Scan'
+          - publish: $(appName)-report.html
+            condition: succeededOrFailed()
+            artifact: ThunderScan HTML Report
+
+          - task: DockerCompose@0
+            inputs:
+              containerregistrytype: 'Azure Container Registry'
+              azureSubscription: 'Enterprise Dev/Test (1b1a6248-7641-4360-8aa9-6e4a0f0ee052)'
+              azureContainerRegistry: '{"loginServer":"crequitydevtest.azurecr.io", "id" : "/subscriptions/1b1a6248-7641-4360-8aa9-6e4a0f0ee052/resourceGroups/RSG-DEV-EQUITY/providers/Microsoft.ContainerRegistry/registries/crequitydevtest"}'
+              dockerComposeFile: '**/docker-compose-uat.yml'
+              action: 'Build services'
+              additionalImageTags: '$(Build.BuildId)'
+
+          - task: DockerCompose@0
+            inputs:
+              containerregistrytype: 'Azure Container Registry'
+              azureSubscription: 'Enterprise Dev/Test (1b1a6248-7641-4360-8aa9-6e4a0f0ee052)'
+              azureContainerRegistry: '{"loginServer":"crequitydevtest.azurecr.io", "id" : "/subscriptions/1b1a6248-7641-4360-8aa9-6e4a0f0ee052/resourceGroups/RSG-DEV-EQUITY/providers/Microsoft.ContainerRegistry/registries/crequitydevtest"}'
+              dockerComposeFile: '**/docker-compose-uat.yml'
+              action: 'Push services'
+              additionalImageTags: '$(Build.BuildId)'
+
+          - task: CopyFiles@2
+            inputs:
+              SourceFolder: '$(system.defaultworkingdirectory)'
+              Contents: |
+                **/*uat.yaml
+                **/*uat.py
+              TargetFolder: '$(build.artifactstagingdirectory)'
+
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+              ArtifactName: 'uat_drop'
+              publishLocation: 'Container'
+
+  - stage: BuildPREPROD
+    displayName: PREPROD
+    condition: and(always(), contains(variables['Build.SourceBranch'], 'refs/heads/release/preprod'))
+    jobs:
+      - job: Build
+        displayName: Build
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+
+          - task: AzureKeyVault@2
+            inputs:
+              azureSubscription: 'Enterprise Production (f735f619-cd61-437a-91a5-9ed2e7b3a4ac)'
+              KeyVaultName: 'kv-ussd-preprod'
+              SecretsFilter: '*'
+              RunAsPreJob: false
+
+          - task: replacetokens@3
+            inputs:
+              targetFiles: |
+                **/*preprod.yaml
+                **/*preprod.py
+                **/**/**/*production.py
+                **/docker-compose-preprod.yml
+              encoding: 'auto'
+              writeBOM: true
+              actionOnMissing: 'warn'
+              keepToken: false
+              tokenPrefix: '#{'
+              tokenSuffix: '}#'
+              useLegacyPattern: false
+              enableTransforms: false
+              enableTelemetry: true
+
+          - task: DockerCompose@0
+            inputs:
+              containerregistrytype: 'Azure Container Registry'
+              azureSubscription: 'Enterprise Production (f735f619-cd61-437a-91a5-9ed2e7b3a4ac)'
+              azureContainerRegistry: '{"loginServer":"crequity.azurecr.io", "id" : "/subscriptions/f735f619-cd61-437a-91a5-9ed2e7b3a4ac/resourceGroups/RSG-PROD-EQUITY/providers/Microsoft.ContainerRegistry/registries/crequity"}'
+              dockerComposeFile: '**/docker-compose-preprod.yml'
+              action: 'Build services'
+              additionalImageTags: '$(Build.BuildId)'
+
+          - task: DockerCompose@0
+            inputs:
+              containerregistrytype: 'Azure Container Registry'
+              azureSubscription: 'Enterprise Production (f735f619-cd61-437a-91a5-9ed2e7b3a4ac)'
+              azureContainerRegistry: '{"loginServer":"crequity.azurecr.io", "id" : "/subscriptions/f735f619-cd61-437a-91a5-9ed2e7b3a4ac/resourceGroups/RSG-PROD-EQUITY/providers/Microsoft.ContainerRegistry/registries/crequity"}'
+              dockerComposeFile: '**/docker-compose-preprod.yml'
+              action: 'Push services'
+              additionalImageTags: '$(Build.BuildId)'
+
+          - task: CopyFiles@2
+            inputs:
+              SourceFolder: '$(system.defaultworkingdirectory)'
+              Contents: |
+                **/*preprod.yaml
+                **/*preprod.py
+              TargetFolder: '$(build.artifactstagingdirectory)'
+
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+              ArtifactName: 'preprod_drop'
+              publishLocation: 'Container'
+
+  - stage: BuildPROD
+    displayName: PROD
+    condition: and(always(), contains(variables['Build.SourceBranch'], 'refs/heads/master'))
+    jobs:
+      - job: Build
+        displayName: Build
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+
+          - task: AzureKeyVault@2
+            inputs:
+              azureSubscription: 'Enterprise Production (f735f619-cd61-437a-91a5-9ed2e7b3a4ac)'
+              KeyVaultName: 'kv-ussd-prod'
+              SecretsFilter: '*'
+              RunAsPreJob: false
+
+          - task: replacetokens@3
+            inputs:
+              targetFiles: |
+                **/*prod.yaml
+                **/*prod.py
+                **/**/**/*production.py
+                **/docker-compose-prod.yml
+              encoding: 'auto'
+              writeBOM: true
+              actionOnMissing: 'warn'
+              keepToken: false
+              tokenPrefix: '#{'
+              tokenSuffix: '}#'
+              useLegacyPattern: false
+              enableTransforms: false
+              enableTelemetry: true
+
+          - task: DockerCompose@0
+            inputs:
+              containerregistrytype: 'Azure Container Registry'
+              azureSubscription: 'Enterprise Production (f735f619-cd61-437a-91a5-9ed2e7b3a4ac)'
+              azureContainerRegistry: '{"loginServer":"crequity.azurecr.io", "id" : "/subscriptions/f735f619-cd61-437a-91a5-9ed2e7b3a4ac/resourceGroups/RSG-PROD-EQUITY/providers/Microsoft.ContainerRegistry/registries/crequity"}'
+              dockerComposeFile: '**/docker-compose-prod.yml'
+              action: 'Build services'
+              additionalImageTags: '$(Build.BuildId)'
+
+          - task: DockerCompose@0
+            inputs:
+              containerregistrytype: 'Azure Container Registry'
+              azureSubscription: 'Enterprise Production (f735f619-cd61-437a-91a5-9ed2e7b3a4ac)'
+              azureContainerRegistry: '{"loginServer":"crequity.azurecr.io", "id" : "/subscriptions/f735f619-cd61-437a-91a5-9ed2e7b3a4ac/resourceGroups/RSG-PROD-EQUITY/providers/Microsoft.ContainerRegistry/registries/crequity"}'
+              dockerComposeFile: '**/docker-compose-prod.yml'
+              action: 'Push services'
+              additionalImageTags: '$(Build.BuildId)'
+
+          - task: CopyFiles@2
+            inputs:
+              SourceFolder: '$(system.defaultworkingdirectory)'
+              Contents: |
+                **/*prod.yaml
+                **/*prod.py
+              TargetFolder: '$(build.artifactstagingdirectory)'
+
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+              ArtifactName: 'prod_drop'
+              publishLocation: 'Container'
+

@@ -1,0 +1,11 @@
+ipython
+Django==3.2
+djangorestframework==3.12.4
+gunicorn==20.1.0
+django_redis
+pyodbc
+mssql-django
+gevent
+factory_boy
+django-cors-headers==3.7.0
+psycopg2

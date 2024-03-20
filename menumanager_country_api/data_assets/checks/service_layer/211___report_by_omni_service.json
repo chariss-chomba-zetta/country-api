@@ -1,0 +1,406 @@
+{
+  "http://ussd:8092/account/v1/account_opening": [
+    "instant_account_opening : post"
+  ],
+  "http://ussd:8092/account/v1/accountnumber/lookup": [
+    "equity_account_lookup : post",
+    "equity_name_check : post",
+    "equity_favorite_name_check : post"
+  ],
+  "http://ussd:8092/account/v1/accounts_inquiry_charge": [
+    "fetch_accounts_inquiry_charge : post"
+  ],
+  "http://ussd:8092/account/v1/all_accounts_balances": [
+    "all_accounts_balance_inquiry : post"
+  ],
+  "http://ussd:8092/account/v1/balance": [
+    "bank_balance : post"
+  ],
+  "http://ussd:8092/account/v1/balances": [
+    "all_bank_balance : post"
+  ],
+  "http://ussd:8092/account/v1/complete_account_opening": [
+    "complete_instant_account_open : post"
+  ],
+  "http://ussd:8092/account/v1/completereset": [
+    "pin_reset_complete : post"
+  ],
+  "http://ussd:8092/account/v1/emailstatement": [
+    "email_statement : post"
+  ],
+  "http://ussd:8092/account/v1/get_secret_question": [
+    "pin_reset_get_security_questions : post"
+  ],
+  "http://ussd:8092/account/v1/initiate_pin_reset": [
+    "pin_reset_initiate : post"
+  ],
+  "http://ussd:8092/account/v1/lookup": [
+    "fetch_accounts : post"
+  ],
+  "http://ussd:8092/account/v1/lookupv1": [
+    "profile_with_loan_accounts : post"
+  ],
+  "http://ussd:8092/account/v1/ministatement": [
+    "mini_statement : post"
+  ],
+  "http://ussd:8092/account/v1/refugee_onboarding": [],
+  "http://ussd:8092/account/v1/sim_swap": [],
+  "http://ussd:8092/account/v1/single_account_balance": [
+    "single_account_balance_inquiry : post"
+  ],
+  "http://ussd:8092/account/v1/single_account_mini_statement": [
+    "single_acc_mini_statement_inquiry : post"
+  ],
+  "http://ussd:8092/account/v1/user_core_accounts": [
+    "get_user_accounts_from_core : post"
+  ],
+  "http://ussd:8092/account/v1/verifyanswers": [
+    "pin_reset_verify_security_questions : post"
+  ],
+  "http://ussd:8092/agent/v1/agent/": [
+    "agent_lookup : post"
+  ],
+  "http://ussd:8092/agent/v1/agent/charges/": [
+    "get_agent_charges : post"
+  ],
+  "http://ussd:8092/agent/v1/agent/limit/": [],
+  "http://ussd:8092/agent/v1/agent/withdraw/": [
+    "agent_withdraw : post"
+  ],
+  "http://ussd:8092/airtime/v1/buyAirtime": [
+    "buy_airtime_current_line : post",
+    "buy_airtime_other_line : post",
+    "buy_airtime_favorite : post"
+  ],
+  "http://ussd:8092/airtime/v1/buyAirtime/otp": [],
+  "http://ussd:8092/airtime/v1/buyAirtime/otpComplete": [],
+  "http://ussd:8092/airtime/v1/charges": [],
+  "http://ussd:8092/airtime/v1/getTelcos": [
+    "get_airtime_telcos : post"
+  ],
+  "http://ussd:8092/airtime/v1/operator/product": [],
+  "http://ussd:8092/airtime/v1/operators": [],
+  "http://ussd:8092/airtime/v1/product": [],
+  "http://ussd:8092/airtime/v1/trans/details": [],
+  "http://ussd:8092/airtime/v1/trans/limits": [],
+  "http://ussd:8092/bills/v1/billerDetails/": [
+    "get_kenya_biller_details : post",
+    "get_favorite_biller_details : post"
+  ],
+  "http://ussd:8092/bills/v1/billers": [],
+  "http://ussd:8092/bills/v1/charges": [
+    "get_kenya_bill_charge : post",
+    "get_popular_bill_charge : post",
+    "get_favorite_bill_charge : post"
+  ],
+  "http://ussd:8092/bills/v1/openMenuMerchant": [],
+  "http://ussd:8092/bills/v1/openMenuTest": [],
+  "http://ussd:8092/bills/v1/pay": [
+    "pay_kenya_bill : post",
+    "pay_popular_kenya_bill : post",
+    "pay_favorite_bill : post"
+  ],
+  "http://ussd:8092/bills/v1/pay2FA": [],
+  "http://ussd:8092/bills/v1/payBill": [],
+  "http://ussd:8092/bills/v1/popular": [
+    "popular_billers : post"
+  ],
+  "http://ussd:8092/bills/v1/validate": [],
+  "http://ussd:8092/bundles/v1/equitel/buy": [],
+  "http://ussd:8092/bundles/v1/equitel/options": [],
+  "http://ussd:8092/buyGoods/v1/buyGoods": [
+    "eazzy_pay : post",
+    "eazzy_pay_favorite : post"
+  ],
+  "http://ussd:8092/buyGoods/v1/buyGoods/favourites/fetch/<str:customerId>": [],
+  "http://ussd:8092/buyGoods/v1/buyGoods/favourites/pay": [],
+  "http://ussd:8092/buyGoods/v1/buyGoodsMpesa": [
+    "pay_mpesa_till : post"
+  ],
+  "http://ussd:8092/buyGoods/v1/merchant_check": [
+    "eazzy_pay_name_check : post",
+    "eazzy_pay_fav_name_check : post"
+  ],
+  "http://ussd:8092/buyGoods/v1/mpesa/charges": [
+    "get_mpesa_till_charges : post"
+  ],
+  "http://ussd:8092/buyGoods/v1/nameCheck": [
+    "name_check_mpesa_till : post"
+  ],
+  "http://ussd:8092/chequebook/v1/cheque/request": [],
+  "http://ussd:8092/chequebook/v1/cheque/request/stop": [],
+  "http://ussd:8092/chequebook/v1/cheque/update": [],
+  "http://ussd:8092/chequebook/v1/cheques/all": [],
+  "http://ussd:8092/chequebook/v1/cheques/bankers/create": [],
+  "http://ussd:8092/chequebook/v1/cheques/bankers/stop": [],
+  "http://ussd:8092/chequebook/v1/cheques/bankers/update": [],
+  "http://ussd:8092/chequebook/v1/cheques/checkcharge": [],
+  "http://ussd:8092/chequebook/v1/cheques/report/statuses": [],
+  "http://ussd:8092/favourite/v1/add_beneficiary": [
+    "add_airtime_favorite : post",
+    "add_buy_goods_favorite : post",
+    "add_paybill_favorite : post",
+    "add_mpesa_favorite : post",
+    "add_airtel_money_favorite : post",
+    "add_kenya_wallet_favorite : post",
+    "add_equity_bank_favourite : post",
+    "add_other_bank_favourite : post",
+    "add_tkash_favorite : post",
+    "send_money_add_favorite : post"
+  ],
+  "http://ussd:8092/favourite/v1/beneficiary": [
+    "get_airtime_favorites : post",
+    "get_buy_goods_favorites : post",
+    "get_paybill_favorite : post",
+    "get_wallet_favorite : post",
+    "get_intra_accounts_favourite : post",
+    "get_inter_accounts_favourite : post",
+    "other_bank_prepare_pay_from_fav : post",
+    "remove_selected_question : post"
+  ],
+  "http://ussd:8092/favourite/v1/beneficiary/add/<str:category>": [],
+  "http://ussd:8092/favourite/v1/beneficiary/remove": [
+    "remove_favorite : post"
+  ],
+  "http://ussd:8092/linkAccount/v1/delinkAccount": [
+    "delink_user_equity_accounts : post"
+  ],
+  "http://ussd:8092/linkAccount/v1/getAccountDetails": [],
+  "http://ussd:8092/linkAccount/v1/getUserAccounts/": [
+    "get_linked_accounts : post"
+  ],
+  "http://ussd:8092/linkAccount/v1/hideBalance": [],
+  "http://ussd:8092/linkAccount/v1/initiateLinkUserAccount": [],
+  "http://ussd:8092/linkAccount/v1/linkAditionalAccounts": [
+    "link_user_core_accounts : post"
+  ],
+  "http://ussd:8092/linkAccount/v1/linkUserAccount": [],
+  "http://ussd:8092/linkAccount/v1/resendOTP": [],
+  "http://ussd:8092/linkAccount/v1/sendOTP": [],
+  "http://ussd:8092/linkAccount/v1/setAccountNickName": [],
+  "http://ussd:8092/linkAccount/v1/showBalance": [],
+  "http://ussd:8092/linkAccount/v1/verifyOTP": [],
+  "http://ussd:8092/loan/v1/accounts": [],
+  "http://ussd:8092/loan/v1/apply": [
+    "apply_one_month_loan : post",
+    "apply_instalment_loan : post",
+    "apply_water_loan : post",
+    "apply_pension_loan : post",
+    "apply_general_purpose_loan : post",
+    "salary_loan : post"
+  ],
+  "http://ussd:8092/loan/v1/balance": [],
+  "http://ussd:8092/loan/v1/customer_products_query": [
+    "get_eco_system_loan_products : post"
+  ],
+  "http://ussd:8092/loan/v1/ecopaymentoptions": [],
+  "http://ussd:8092/loan/v1/ecosystem/accept": [],
+  "http://ussd:8092/loan/v1/ecosystem/customerproducts": [],
+  "http://ussd:8092/loan/v1/ecosystem/initiate": [],
+  "http://ussd:8092/loan/v1/ecosystem_acceptloanoffer": [
+    "accept_ecosystem_loan_offer : post"
+  ],
+  "http://ussd:8092/loan/v1/ecosystem_initiateloan": [
+    "initiate_ecosystem_loan : post"
+  ],
+  "http://ussd:8092/loan/v1/ecosystemloanbalance": [],
+  "http://ussd:8092/loan/v1/ecosystemloanlimit": [
+    "ecosystem_loan_limit : post"
+  ],
+  "http://ussd:8092/loan/v1/ecosystemloanlimitone": [],
+  "http://ussd:8092/loan/v1/ecosystempayloan": [],
+  "http://ussd:8092/loan/v1/ecoystemtotalrepayable": [],
+  "http://ussd:8092/loan/v1/fullpayment": [
+    "loan_full_payment : post"
+  ],
+  "http://ussd:8092/loan/v1/limit": [
+    "loan_limit : post",
+    "loan_limit_one_month : post",
+    "loan_limit_instalment : post",
+    "loan_limit_topup : post",
+    "loan_limit_water : post",
+    "loan_limit_solar : post",
+    "loan_limit_simu : post",
+    "loan_limit_pension : post",
+    "general_purpose_loan_limit : post"
+  ],
+  "http://ussd:8092/loan/v1/limitV2": [
+    "loan_limit_salary : post",
+    "general_purpose_loan_limit_v2 : post"
+  ],
+  "http://ussd:8092/loan/v1/loan-v1/generalpurpose/apply": [
+    "general_purpose_v2_apply : post"
+  ],
+  "http://ussd:8092/loan/v1/loan-v1/generalpurpose/payoff": [
+    "gp_loan_full_payment : post"
+  ],
+  "http://ussd:8092/loan/v1/loan/ecosystem/initiate": [
+    "ecosystem_loan_application : post"
+  ],
+  "http://ussd:8092/loan/v1/loanInstallmentOptions": [
+    "general_purpose_installment_options : post"
+  ],
+  "http://ussd:8092/loan/v1/loan_prodcut_query": [
+    "get_customer_loan_products : post",
+    "dynamic_loan_limit : post"
+  ],
+  "http://ussd:8092/loan/v1/loan_purposes": [
+    "general_purpose_loan_purpose : post"
+  ],
+  "http://ussd:8092/loan/v1/merchant/apply": [],
+  "http://ussd:8092/loan/v1/merchant/clearloan": [],
+  "http://ussd:8092/loan/v1/merchant/loanlimit": [],
+  "http://ussd:8092/loan/v1/merchant/partialclearloan": [],
+  "http://ussd:8092/loan/v1/merchant/repayable": [],
+  "http://ussd:8092/loan/v1/partialpayment": [
+    "loan_partial_payment : post"
+  ],
+  "http://ussd:8092/loan/v1/partialpayment2": [
+    "gp_loan_partial_payment : post"
+  ],
+  "http://ussd:8092/loan/v1/productdetails": [],
+  "http://ussd:8092/loan/v1/products": [
+    "loan_products : post"
+  ],
+  "http://ussd:8092/loan/v1/topup": [],
+  "http://ussd:8092/loan/v1/totalRepayable": [
+    "total_payable : post",
+    "dynamic_loan_payable : post"
+  ],
+  "http://ussd:8092/loan/v1/totalRepayableV2": [
+    "general_purpose_totalrepayable_v2 : post"
+  ],
+  "http://ussd:8092/loan/v3/apply": [],
+  "http://ussd:8092/loan/v3/balance": [],
+  "http://ussd:8092/loan/v3/clear_loan": [],
+  "http://ussd:8092/loan/v3/installment": [],
+  "http://ussd:8092/loan/v3/limit": [],
+  "http://ussd:8092/loan/v3/partial_pay": [],
+  "http://ussd:8092/loan/v3/purpose": [],
+  "http://ussd:8092/loan/v3/repayable": [],
+  "http://ussd:8092/mobilemoney/v1/buyMpesaFloat": [
+    "buy_mpesa_float : post"
+  ],
+  "http://ussd:8092/mobilemoney/v1/buyMpesaFloatNameCheck": [
+    "namecheck_mpesa_float_agent : post"
+  ],
+  "http://ussd:8092/mobilemoney/v1/getMobileMoneyTelcos": [
+    "get_mobile_money_telcos : post"
+  ],
+  "http://ussd:8092/mobilemoney/v1/mobile/money": [
+    "send_to_mpesa : post",
+    "send_to_airtel : post",
+    "send_to_tkash : post"
+  ],
+  "http://ussd:8092/mobilemoney/v1/mobile/money/charges": [
+    "get_mobile_money_charges : post"
+  ],
+  "http://ussd:8092/mobilemoney/v1/namecheck": [
+    "mobile_money_name_check : post",
+    "airtel_money_name_check : post",
+    "kenya_wallet_name_check : post"
+  ],
+  "http://ussd:8092/mobilemoney/v1/send/mobile/money": [
+    "send_mobile_money : post"
+  ],
+  "http://ussd:8092/onboarding/v1/registration/status": [
+    "confirm_registration : post"
+  ],
+  "http://ussd:8092/onboarding/v1/signup": [
+    "register_customer : post"
+  ],
+  "http://ussd:8092/pesalink/v1/namecheck": [],
+  "http://ussd:8092/pesalink/v1/namecheck/phone": [],
+  "http://ussd:8092/pesalink/v1/query": [],
+  "http://ussd:8092/pesalink/v1/registration": [],
+  "http://ussd:8092/save/v1/accounts": [],
+  "http://ussd:8092/save/v1/create/classicsaving": [],
+  "http://ussd:8092/save/v1/create/fixeddeposit": [],
+  "http://ussd:8092/save/v1/fixeddeposit/break": [],
+  "http://ussd:8092/save/v1/fixeddeposit/investmentreturn/estimate": [],
+  "http://ussd:8092/save/v1/getinvestmentterms": [],
+  "http://ussd:8092/save/v1/payment/frequency": [],
+  "http://ussd:8092/save/v1/products": [],
+  "http://ussd:8092/save/v1/rolloveroptions": [],
+  "http://ussd:8092/save/v1/terms/calldeposit": [],
+  "http://ussd:8092/save/v1/terms/fixeddeposit": [],
+  "http://ussd:8092/save/v1/terms/goalsaving": [],
+  "http://ussd:8092/settings/v1/bank": [
+    "fetch_bank : post",
+    "fetch_all_banks : post"
+  ],
+  "http://ussd:8092/settings/v1/callus": [],
+  "http://ussd:8092/settings/v1/changePin": [
+    "complete_change_pin : post"
+  ],
+  "http://ussd:8092/settings/v1/changeTempPin": [
+    "change_temporary_pin : post"
+  ],
+  "http://ussd:8092/settings/v1/initiateChangePin": [
+    "initiate_change_pin : post"
+  ],
+  "http://ussd:8092/settings/v1/initiatePinReset": [],
+  "http://ussd:8092/settings/v1/lookup/bankcode": [
+    "lookup_bank_code : post"
+  ],
+  "http://ussd:8092/settings/v1/lookup/banks": [
+    "get_kenya_banks : post"
+  ],
+  "http://ussd:8092/settings/v1/optinout": [],
+  "http://ussd:8092/settings/v1/securityQuestions": [
+    "getting_security_questions : post",
+    "fetching_security_questions : post",
+    "pop_security_question : post",
+    "setting_security_questions : post"
+  ],
+  "http://ussd:8092/settings/v1/sendsms": [
+    "send_balance_sms : post",
+    "send_ministatement_sms : post",
+    "send_allbalance_sms : post",
+    "loan_balance_sms : post",
+    "send_acc_ministatement_sms : post"
+  ],
+  "http://ussd:8092/settings/v1/token": [
+    "get_token : post",
+    "server_token : post",
+    "get_installment_loan_tenure : post",
+    "get_kenya_wallets : post"
+  ],
+  "http://ussd:8092/settings/v1/validatechangepinotp": [],
+  "http://ussd:8092/settings/v1/verifyTempPin": [
+    "verify_temporary_pin : post"
+  ],
+  "http://ussd:8092/standingorder/v1/all": [],
+  "http://ussd:8092/standingorder/v1/amend": [],
+  "http://ussd:8092/standingorder/v1/bank-branch-code": [],
+  "http://ussd:8092/standingorder/v1/cities": [],
+  "http://ussd:8092/standingorder/v1/create": [],
+  "http://ussd:8092/standingorder/v1/stop": [],
+  "http://ussd:8092/transfer/v1/inter": [
+    "send_other_bank : post",
+    "send_other_bank_phone : post"
+  ],
+  "http://ussd:8092/transfer/v1/inter/query": [],
+  "http://ussd:8092/transfer/v1/inter2fa": [],
+  "http://ussd:8092/transfer/v1/intra": [
+    "ft_own_account : post",
+    "ft_other_equity_account : post",
+    "ft_equity_favorite : post"
+  ],
+  "http://ussd:8092/transfer/v1/intra/query": [],
+  "http://ussd:8092/transfer/v1/intra2fa": [],
+  "http://ussd:8092/transfer/v1/pesalink/query": [
+    "phone_associated_banks : post"
+  ],
+  "http://ussd:8092/transfer/v1/transaction/limit": [],
+  "http://ussd:8092/transfer/v1/transaction_charges": [
+    "transfer_charges : post",
+    "get_transfer_charges_intra : post"
+  ],
+  "http://ussd:8092/transfer/v1/transfer/charge": [],
+  "http://ussd:8092/withdraw/v1/agent": [],
+  "http://ussd:8092/withdraw/v1/agentcharges": [
+    "agent_withdraw_charges : post"
+  ],
+  "http://ussd:8092/withdraw/v1/atm": []
+}
