@@ -1,25 +1,5 @@
 FROM python:3-stretch
 
-ENV PATH="/opt/app/.local/bin:${PATH}"
-ENV SETTINGS_PATH=menumanager_country_api.settings.local
-ENV SECRET_KEY=rj+cio6-qv9xjsppbx3u-01wk2q$mr0q26mdyy4s1@sz5-y0ul
-
-#APP SETTINGS
-ENV SERVICE_BASE_PORT=20000
-ENV CACHE_MENU_KEY_PREFIX=menus
-ENV COUNTRY_CODE=254
-ENV DATABASE_NAME=ussd-menumanagement-uat-ke
-ENV CACHE_OMNI_KEY_PREFIX=VAS
-ENV LOCAL_DATABASE_NAME=vas.sqlite3
-
-# REDIS SETTINGS
-ENV REDIS_HOST=redis
-ENV REDIS_PORT=6379
-ENV REDIS_PASS=redis
-ENV REDIS_SSL=False
-
-RUN chgrp -R 0 /run && chmod -R g=u /run
-
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 RUN echo "deb http://deb.debian.org/debian buster main" > /etc/apt/sources.list
 RUN apt-get update && \
@@ -28,25 +8,30 @@ RUN apt-get update && \
     curl https://packages.microsoft.com/config/debian/9/prod.list > /etc/apt/sources.list.d/mssql-release.list && \
     apt-get update && \
     ACCEPT_EULA=Y apt-get install unixodbc-dev -y
-
+    
+# copy source and install dependencies
 WORKDIR /menumanager_country_api
 RUN pwd
 RUN mkdir -p /opt/app
 RUN mkdir -p /opt/app/pip_cache
 RUN mkdir -p /opt/app/menumanager_country_api
 
-COPY requirements.txt kenya-start-server.sh /opt/app/
+COPY requirements.txt start_local.sh /opt/app/
 
 COPY . /opt/app/menumanager_country_api/
+
+# users
+RUN groupadd -r docker -g 1000 \
+	&& useradd -u 1000 -r -g docker -d /opt/app -s /sbin/nologin -c "Docker image user" docker \
+	&& chown -R docker:docker /opt/app
 
 WORKDIR /opt/app
 
 RUN pip install -r requirements.txt --no-cache-dir
+ENV PATH="/opt/app/.local/bin:${PATH}"
 
-RUN chown -R www-data:www-data /opt/app
-RUN chmod +x /opt/app/kenya-start-server.sh
+USER docker
+RUN chmod 775 /opt/app/start_local.sh
 
 # start server
-EXPOSE 20254
 STOPSIGNAL SIGTERM
-CMD ["/opt/app/kenya-start-server.sh"]

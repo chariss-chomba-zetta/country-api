@@ -2,7 +2,7 @@
 /menumanager_country_api/.env
 /menumanager_country_api/Dockerfile.local
 /menumanager_country_api/start_local.sh
-/menumanager_country_api/menumanager_country_api/settings/local.py
+# /menumanager_country_api/menumanager_country_api/settings/local.py
 /menumanager_country_api/docker-compose.yml
 /menumanager_country_api/start_local_alone.sh
 **/__pycache__/

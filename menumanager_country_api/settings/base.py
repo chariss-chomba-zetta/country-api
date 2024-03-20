@@ -113,7 +113,8 @@ LOGGING = {
 
 # --------------------------REDIS SETTINGS--------------------------
 REDIS_HOST = os.environ.get('REDIS_HOST')
-REDIS_PORT = int(os.environ.get('REDIS_PORT'))
+# REDIS_PORT = int(os.environ.get('REDIS_PORT'))
+REDIS_PORT = 6379
 REDIS_PASS = os.environ.get('REDIS_PASS')
 REDIS_SSL = os.environ.get('REDIS_SSL') == 'True'
 REDIS_SSL_CERT = os.environ.get('REDIS-SSL-CERT')
