@@ -1,5 +1,14 @@
 FROM python:3-stretch
 
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+RUN echo "deb http://deb.debian.org/debian buster main" > /etc/apt/sources.list
+RUN apt-get update && \
+    apt-get install -y apt-transport-https && \
+    curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - && \
+    curl https://packages.microsoft.com/config/debian/9/prod.list > /etc/apt/sources.list.d/mssql-release.list && \
+    apt-get update && \
+    ACCEPT_EULA=Y apt-get install unixodbc-dev -y
+
 WORKDIR /menumanager_country_api
 RUN pwd
 RUN mkdir -p /opt/app
@@ -23,3 +32,4 @@ USER docker
 RUN chmod 775 /opt/app/kenya-start-server.sh
 
 STOPSIGNAL SIGTERM
+
