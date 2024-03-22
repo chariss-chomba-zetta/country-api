@@ -1,6 +1,15 @@
 FROM python:3-stretch
 
-ENV PATH="/opt/app/.local/bin:${PATH}"
+
+
+RUN echo "deb http://deb.debian.org/debian buster main" > /etc/apt/sources.list
+
+
+RUN apt-get update && \
+    apt-get install -y apt-transport-https && \
+    apt-get install unixodbc-dev -y
+
+WORKDIR /menumanager_country_api
 ENV SETTINGS_PATH=menumanager_country_api.settings.local
 ENV SECRET_KEY=rj+cio6-qv9xjsppbx3u-01wk2q$mr0q26mdyy4s1@sz5-y0ul
 
@@ -17,20 +26,6 @@ ENV REDIS_HOST=redis
 ENV REDIS_PORT=6379
 ENV REDIS_PASS=redis
 ENV REDIS_SSL=False
-
-RUN chgrp -R 0 /run && chmod -R g=u /run
-
-RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
-RUN echo "deb http://deb.debian.org/debian buster main" > /etc/apt/sources.list
-RUN apt-get update && \
-    apt-get install -y apt-transport-https && \
-    curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - && \
-    curl https://packages.microsoft.com/config/debian/9/prod.list > /etc/apt/sources.list.d/mssql-release.list && \
-    apt-get update && \
-    ACCEPT_EULA=Y apt-get install unixodbc-dev -y
-
-WORKDIR /menumanager_country_api
-RUN pwd
 RUN mkdir -p /opt/app
 RUN mkdir -p /opt/app/pip_cache
 RUN mkdir -p /opt/app/menumanager_country_api
@@ -48,5 +43,5 @@ RUN chmod +x /opt/app/kenya-start-server.sh
 
 # start server
 EXPOSE 20254
-STOPSIGNAL SIGTERM
+# STOPSIGNAL SIGTERM
 CMD ["/opt/app/kenya-start-server.sh"]

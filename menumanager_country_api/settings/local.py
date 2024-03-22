@@ -23,16 +23,12 @@ DATABASES = {
 
 
 
-# REDIS_HOST = os.environ.get('REDIS_HOST')
-REDIS_HOST = redis
-# REDIS_PORT = int(os.environ.get('REDIS_PORT'))
-REDIS_PORT = 6379
-# REDIS_PASS = os.environ.get('REDIS_PASS')
-REDIS_PASS = redis
-# REDIS_SSL = os.environ.get('REDIS_SSL') == 'True'
-REDIS_SSL = False
-# REDIS_SSL_CERT = os.environ.get('REDIS-SSL-CERT')
-# REDIS_RUNS_IN_CLUSTER = os.environ.get('REDIS_RUNS_IN_CLUSTER') == 'True'
+REDIS_HOST = os.environ.get('REDIS_HOST')
+REDIS_PORT = int(os.environ.get('REDIS_PORT'))
+REDIS_PASS = os.environ.get('REDIS_PASS')
+REDIS_SSL = os.environ.get('REDIS_SSL') == 'True'
+REDIS_SSL_CERT = os.environ.get('REDIS-SSL-CERT')
+REDIS_RUNS_IN_CLUSTER = os.environ.get('REDIS_RUNS_IN_CLUSTER') == 'True'
 # USE_TZ = True
 #
 # DATABASES = {
